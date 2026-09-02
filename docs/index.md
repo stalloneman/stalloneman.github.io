@@ -1,11 +1,11 @@
 ---
-title: Welcome
+title: Khushamadeed!
 tags:
 - tag1
 - tag2
 ---
 <center>
-<font size= "6">(Your Name) Datasheet</font><br>
+<font size= "6">Sultan Haidar Ali Datasheet</font><br>
 as part of<br>
 <font size= "8"> Project Name</font><br>
 for<br>
