@@ -16,6 +16,10 @@ jobs:
   build:
     name: build mkdocs
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     steps:
       - name: Checkout 
         uses: actions/checkout@v4
@@ -23,10 +27,10 @@ jobs:
       - name: Build
         uses: Tiryoh/actions-mkdocs@v0
         with:
-          mkdocs_version: 'latest' # latest means latest for the base ubuntu image.  You should peg it to a specific version for best results.
-          # mkdocs_version: '1.6' # option
-          requirements: 'requirements.txt' # option
-          configfile: 'mkdocs.yml' # option
+          mkdocs_version: 'latest'
+          requirements: 'requirements.txt'
+          configfile: 'mkdocs.yml'
+          python_version: '3.12'
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
