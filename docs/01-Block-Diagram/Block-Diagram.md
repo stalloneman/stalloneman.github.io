@@ -19,4 +19,4 @@ project.
 ## Example Block Diagram 
 Showing an example of how to import a screenshot of the block diagram created outside of git and brought into a page.
 
-![Indivial Block diagram ](Sultan Haidar Ali Individual Block Diagram Team 105.drawio.drawio.png)
+![Indivial Block diagram ](Sultan Haidar Ali Individual Block Diagram Team 105.png)
