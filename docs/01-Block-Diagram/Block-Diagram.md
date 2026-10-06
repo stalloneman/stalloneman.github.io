@@ -17,6 +17,5 @@ provide enable communication between the subsystem and other subsystems of the
 project. This subsystem serves as the central hub of the team's hub-and-spoke architecture
 
 ## Example Block Diagram 
-Showing an example of how to import a screenshot of the block diagram created outside of git and brought into a page.
 
 ![Individual Block diagram ](Individual Sultan Block Diagram.png)
