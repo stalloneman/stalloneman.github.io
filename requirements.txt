@@ -2,3 +2,5 @@ mkdocs-glightbox
 mkdocs-material
 mkdocs-material-extensions
 mkdocs-rss-plugin
+# selectolax 1.x moves image nodes while mkdocs-glightbox wraps them, which drops every image from the built pages.
+selectolax==0.3.29
