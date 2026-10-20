@@ -16,4 +16,4 @@ The design includes 9-12 V input power regulation to 5 V, a local 3.3 V supply f
 
 A high-resolution PDF of the schematic is available [*here*](Hub-Subsystem-Schematic.pdf).
 
-The complete KiCad project, including the schematic, project files, custom/imported symbol libraries, footprint libraries, and reference files, is available as a [*ZIP archive*](Hub-Subsystem-KiCad-Project.zip).
+The complete KiCad project is available as a [*ZIP archive*](Hub-Subsystem-KiCad-Project.zip).
