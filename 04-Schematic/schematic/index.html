@@ -26,7 +26,7 @@
 
     
       
-        <title>Schematic - EGR 304 Data Sheet Template</title>
+        <title>Schematics - EGR 304 Data Sheet Template</title>
       
     
     
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Schematic
+              Schematics
             
           </span>
         </div>
@@ -609,7 +609,7 @@
           
   
   <span class="md-ellipsis">
-    Schematic
+    Schematics
   </span>
   
 
@@ -620,7 +620,7 @@
         
   
   <span class="md-ellipsis">
-    Schematic
+    Schematics
   </span>
   
 
@@ -649,9 +649,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resouces" class="md-nav__link">
+  <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Resouces
+      Resources
     </span>
   </a>
   
@@ -809,9 +809,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resouces" class="md-nav__link">
+  <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Resouces
+      Resources
     </span>
   </a>
   
@@ -840,14 +840,16 @@
   
 
 
-  <h1>Schematic</h1>
+  <h1>Schematics</h1>
 
 <h2 id="overview">Overview</h2>
-<p>This schematic is design to support .... (highlight functionally, power, and controller).</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Screenshot.png" data-desc-position="bottom"><img alt="schematic" height:_300_="height:&quot;300;&quot;" src="../Screenshot.png" style="style" width:_350_="width:&quot;350&quot;"></a>
-<strong>Figure ##:</strong> Showing a example schematic.</p>
-<h2 id="resouces">Resouces</h2>
-<p>The schematic as a PDF download is available <a href="../ExampleSchematic.pdf"><em>here</em></a>, and the Zip folder of the project <a href="../dummyZip.zip"><em>here</em></a>.</p>
+<p>The Hub subsystem is centered around a PIC18F57Q43 Curiosity Nano development board. It interfaces with a 128x64 SSD1306 OLED over I2C and provides UART connections for communication with the other team subsystems.</p>
+<p>The design includes 9-12 V input power regulation to 5 V, a local 3.3 V supply for the OLED, I2C level shifting, a debugging LED and pushbutton, test points, an OLED power-isolation jumper, and fused 5 V power distribution to the connected boards.</p>
+<p></p>
+<p><strong>Figure 1:</strong> Hub subsystem schematic showing the microcontroller and debugging circuitry, OLED display and I2C interface, power input and 5 V regulation, and UART inter-board connector.</p>
+<h2 id="resources">Resources</h2>
+<p>A high-resolution PDF of the schematic is available <a href="../Hub-Subsystem-Schematic.pdf"><em>here</em></a>.</p>
+<p>The complete KiCad project, including the schematic, project files, custom/imported symbol libraries, footprint libraries, and reference files, is available as a <a href="../Hub-Subsystem-KiCad-Project.zip"><em>ZIP archive</em></a>.</p>
 
 
 
