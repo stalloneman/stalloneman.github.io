@@ -603,18 +603,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bill-of-materials-example-as-table" class="md-nav__link">
+  <a href="#hub-bill-of-materials" class="md-nav__link">
     <span class="md-ellipsis">
-      Bill of Materials Example (as Table)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bill-of-materials-example-as-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bill of Materials Example (as Image)
+      Hub Bill of Materials
     </span>
   </a>
   
@@ -818,18 +809,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bill-of-materials-example-as-table" class="md-nav__link">
+  <a href="#hub-bill-of-materials" class="md-nav__link">
     <span class="md-ellipsis">
-      Bill of Materials Example (as Table)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bill-of-materials-example-as-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bill of Materials Example (as Image)
+      Hub Bill of Materials
     </span>
   </a>
   
@@ -861,56 +843,106 @@
   <h1>Bill of Materials</h1>
 
 <h2 id="overview">Overview</h2>
-<p>written context</p>
-<h2 id="bill-of-materials-example-as-table">Bill of Materials Example (as Table)</h2>
-<p><em>Table ##: An example of one approach to adding your BOM table to this section.</em></p>
+<p>These are the parts on the RadioLink hub schematic. Passives are omitted except where the value sets a current, as in the debug LED resistor. Prices are listed only where a vendor price was already chosen in component selection.</p>
+<h2 id="hub-bill-of-materials">Hub Bill of Materials</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;"><strong>Part Name/Description</strong></th>
-<th style="text-align: left;"><strong>Qty</strong></th>
-<th style="text-align: left;"><strong>Unit Cost</strong></th>
-<th style="text-align: left;"><strong>Total Cost</strong></th>
-<th style="text-align: left;"><strong>Manufacture</strong></th>
-<th style="text-align: left;"><strong>Manufacturer #</strong></th>
-<th style="text-align: left;"><strong>Vendor Link</strong></th>
-<th style="text-align: left;"><strong>Datasheet Link</strong></th>
-<th style="text-align: left;"><strong>Schematic Reference Designators</strong></th>
+<th style="text-align: left;"><strong>Part</strong></th>
+<th style="text-align: left;"><strong>Ref</strong></th>
+<th style="text-align: center;"><strong>Qty</strong></th>
+<th style="text-align: left;"><strong>Function</strong></th>
+<th style="text-align: left;"><strong>Unit cost</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">8-bit SIPO/SISO Shift Register, SOIC-16 package</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">$0.49</td>
-<td style="text-align: left;">$ 0.49</td>
-<td style="text-align: left;">NXP</td>
-<td style="text-align: left;">74HC595D,112</td>
-<td style="text-align: left;"><a href="https://www.digikey.com/en/products/detail/nexperia-usa-inc/74HC595D-112/763550">DigiKey</a></td>
-<td style="text-align: left;"><a href="https://assets.nexperia.com/documents/data-sheet/74HC_HCT595.pdf">datasheet link</a></td>
-<td style="text-align: left;">U1</td>
+<td style="text-align: left;">PIC18F57Q43 Curiosity Nano</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Hub microcontroller</td>
+<td style="text-align: left;">—</td>
 </tr>
 <tr>
-<td style="text-align: left;">0.1 µF Ceramic Capacitor, +/-10%, X7R, 50V, 0805 package</td>
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">0.2750</td>
-<td style="text-align: left;">$2.75</td>
-<td style="text-align: left;">KEMET</td>
-<td style="text-align: left;">C0805F104K5RACTU</td>
-<td style="text-align: left;">PRLTA 109</td>
-<td style="text-align: left;">n/a</td>
-<td style="text-align: left;">C2, C4, C6, C7, C8, C9, C10, C11, C12, C16</td>
+<td style="text-align: left;">UG-2864HSWEG01, 128x64 SSD1306 OLED</td>
+<td style="text-align: left;">U1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">On-board graphics. Component selection chose the ER-OLED0.96-1.3W, the same controller class.</td>
+<td style="text-align: left;">$2.49</td>
+</tr>
+<tr>
+<td style="text-align: left;">L7805CV</td>
+<td style="text-align: left;">U4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">9 V to 5 V</td>
+<td style="text-align: left;">~$1.08</td>
+</tr>
+<tr>
+<td style="text-align: left;">3.3 V LDO, SOT-23-5</td>
+<td style="text-align: left;">U2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">OLED supply. The schematic does not name the orderable part. The block diagram rates this rail at 500 mA.</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">BSS138</td>
+<td style="text-align: left;">Q1, Q2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">I2C level shift between 5 V and 3.3 V</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">Red LED</td>
+<td style="text-align: left;">D4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Debug indicator. Series resistor R7 is 330 Ω.</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">1N4148</td>
+<td style="text-align: left;">D1, D2, D3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">Small-signal diodes in the I2C level-shift network</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">1 A fuse</td>
+<td style="text-align: left;">F2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Protects the 9 V input</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">Barrel jack</td>
+<td style="text-align: left;">J1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">9 V input</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">8-pin socket</td>
+<td style="text-align: left;">J4, J5, J6</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">UART connectors to the other three boards</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pushbutton</td>
+<td style="text-align: left;">SW1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Local debug input on the hub. The user buttons are on board 2.</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">Jumper</td>
+<td style="text-align: left;">JP1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">Disconnects power from the OLED</td>
+<td style="text-align: left;">—</td>
 </tr>
 </tbody>
 </table>
-<p>Note: Setting it up as a table is nice because it is completely viewable without scaling issues. <ins>Downside</ins> is that you have to do the math.</p>
-<ul>
-<li>You could also import your BOM via a screenshot of the spreadsheet created BOM</li>
-</ul>
-<h2 id="bill-of-materials-example-as-image">Bill of Materials Example (as Image)</h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../BOM-Screenshot.png" data-desc-position="bottom"><img _2000_="&quot;2000&quot;" alt="" src="../BOM-Screenshot.png" style="style" width:="width:"></a>
-<strong>Figure 2:</strong> Example Bill of Materials as a screenshot.</p>
-<p>As you can see, the text can be difficult to read without opening the image.</p>
+<p>The microphone, temperature sensor, user buttons, and speaker are not on this board.</p>
 
 
 

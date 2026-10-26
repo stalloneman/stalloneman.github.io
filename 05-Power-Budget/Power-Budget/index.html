@@ -695,6 +695,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rails
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conclusions" class="md-nav__link">
     <span class="md-ellipsis">
       Conclusions
@@ -704,9 +713,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resouces" class="md-nav__link">
+  <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Resouces
+      Resources
     </span>
   </a>
   
@@ -818,6 +827,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rails
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conclusions" class="md-nav__link">
     <span class="md-ellipsis">
       Conclusions
@@ -827,9 +845,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resouces" class="md-nav__link">
+  <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Resouces
+      Resources
     </span>
   </a>
   
@@ -861,17 +879,19 @@
   <h1>Power Budget</h1>
 
 <h2 id="overview">Overview</h2>
-<p>Write a overview of what you did and why you did a Power Budget.</p>
-<blockquote>
-<p>Capture your power budge as a image to display. Take time to get clean breaks and a well organized layout.</p>
-</blockquote>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../budgetPg1.png" data-desc-position="bottom"><img alt="budget1" height:_300_="height:&quot;300;&quot;" src="../budgetPg1.png" style="style" width:_350_="width:&quot;350&quot;"></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../budgetPg2.png" data-desc-position="bottom"><img alt="budget2" height:_300_="height:&quot;300;&quot;" src="../budgetPg2.png" style="style" width:_350_="width:&quot;350&quot;"></a></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../budgetPg3.png" data-desc-position="bottom"><img alt="budget3" height:_300_="height:&quot;300;&quot;" src="../budgetPg3.png" style="style" width:_350_="width:&quot;350&quot;"></a></p>
+<p>This budget is for the RadioLink hub only. It covers the PIC18F57Q43 Curiosity Nano, the on-board OLED, the debug LED, and the regulators that feed them. The microphone, button, and speaker boards are not included. Their UART links are logic-level signals, and those boards carry their own supplies.</p>
+<p>Currents are datasheet or circuit limits, not lab measurements. The template's 25% margin is kept on each rail. The spreadsheet is linked below.</p>
+<h2 id="rails">Rails</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../RadioLink-Power-Budget-Rails.png" data-desc-position="bottom"><img alt="Hub power budget, loads and regulated rails" src="../RadioLink-Power-Budget-Rails.png"></a></p>
+<p><strong>Figure 1:</strong> Major loads, the 5 V rail, and the 3.3 V rail.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../RadioLink-Power-Budget-Source.png" data-desc-position="bottom"><img alt="Hub power budget, 9 V source" src="../RadioLink-Power-Budget-Source.png"></a></p>
+<p><strong>Figure 2:</strong> Current drawn from the 9 V barrel jack, and the life of a 9 V battery if one is used in place of a wall supply.</p>
 <h2 id="conclusions">Conclusions</h2>
-<p>From the prepare Power Budget, .....</p>
-<h2 id="resouces">Resouces</h2>
-<p>The power budget as a PDF download is available <a href="../PowerBudgetExample.pdf"><em>here</em></a>, and a Microsoft Excel Sheet <a href="../PowerBudgetExample.xlsx"><em>here</em></a>.</p>
+<p>After the 25% margin, the hub asks the 5 V rail for 72.5 mA. The 1 A fuse and the LM7805 can both supply that, with 927.5 mA still unused. The OLED is the largest load, at 33 mA on the 3.3 V rail. The 3.3 V regulator is rated for 500 mA on the block diagram, so the display does not stress it.</p>
+<p>The LM7805 drops 9 V to 5 V. At this load its dissipation is about 0.36 W, which a TO-220 package can handle without a heatsink. The 9 V input, limited by the 1 A fuse, still has 919.5 mA of spare current. That spare current is not a reason to power the speaker from this board. The speaker amplifier belongs on board 3.</p>
+<p>A 500 mAh 9 V alkaline battery would run this hub for 6.21 hours. The schematic uses a barrel jack, so that figure only applies if a battery is substituted for the jack. USB on the Curiosity Nano can power the microcontroller during programming, and that path is separate from this 9 V budget.</p>
+<h2 id="resources">Resources</h2>
+<p>The spreadsheet is available as a <a href="../RadioLink-Hub-Power-Budget.zip"><em>ZIP archive</em></a> and as an <a href="../RadioLink-Hub-Power-Budget.xlsx"><em>Excel file</em></a>.</p>
 
 
 
