@@ -106,3 +106,25 @@ title: Component Selection
 **Choice:** Option 1: L7805CV
 
 **Rationale:** Option 1 is widely used, well documented, and readily available. Its 1.5 A output also provides plenty of current for the circuit. The through-hole package makes it easy to prototype.
+
+## How the Choices Meet the Requirements
+
+The hub has to show a custom screen and exchange UART data with the microphone, button, and speaker boards. The display needs to be small, readable, and driven by a bus the PIC18F57Q43 already has. Option 3 was selected because it uses the SSD1306, costs $2.49, and can be ordered without the 12- and 16-week waits of the larger panels. A 0.96-inch screen is enough for the temperature reading and the audio status that the user pages through with the buttons on board 2.
+
+The 9 V barrel jack has to become 5 V for the Curiosity Nano, the debug LED, and the UART logic. The L7805 does that and is easy to solder. The power budget shows the hub itself uses under 100 mA, so the deciding factors were the 9 V input and the through-hole package, not a need for the full 1.5 A. The MCP1702 is the better low-power part, and it was set aside because 250 mA and a SOT-23 package are not what this build needs.
+
+## MCC Configuration
+
+The hub uses the PIC18F57Q43 on the Curiosity Nano. The clock is the internal HFINTOSC. There is no external crystal on the schematic. Peripheral pin select maps the digital pins below.
+
+| Function | Peripheral | Pins |
+| --- | --- | --- |
+| System clock | HFINTOSC | Internal |
+| OLED | I2C | SDA on RB2, SCL on RB1 |
+| Debug LED | PWM | RA2 |
+| UART connector 1 | UART | TX on RC2, RX on RC3 |
+| UART connector 2 | UART | TX on RF0, RX on RF1 |
+| UART connector 3 | UART | TX on RA3, RX on RA4 |
+| Debug button | GPIO input | SW1. The schematic does not label which PIC pin it uses. |
+
+The three UART ports are the links to the microphone board, the button and temperature board, and the speaker board. The block diagram does not assign a connector number to a specific board, so this table does not either. I2C is shifted from 5 V at the microcontroller to 3.3 V at the OLED. SW1 is the debug button on this board, not the user buttons on board 2.

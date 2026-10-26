@@ -6,23 +6,24 @@ tags:
 ---
 
 ## Overview
-written context
 
-## Bill of Materials Example (as Table)
+These are the parts on the RadioLink hub schematic. Passives are omitted except where the value sets a current, as in the debug LED resistor. Prices are listed only where a vendor price was already chosen in component selection.
 
-*Table ##: An example of one approach to adding your BOM table to this section.*
+## Hub Bill of Materials
 
-| **Part Name/Description** | **Qty** | **Unit Cost** | **Total Cost** | **Manufacture** | **Manufacturer #** | **Vendor Link** |**Datasheet Link** | **Schematic Reference Designators** |
-|:--------------------|:----|:---------------|:-----|:--------|:-----|:-----|:----|:-----|
-8-bit SIPO/SISO Shift Register, SOIC-16 package | 1 | $0.49 | $ 0.49 | NXP | 74HC595D,112 | [DigiKey](https://www.digikey.com/en/products/detail/nexperia-usa-inc/74HC595D-112/763550) | [datasheet link](https://assets.nexperia.com/documents/data-sheet/74HC_HCT595.pdf) | U1 |
-0.1 µF Ceramic Capacitor, +/-10%, X7R, 50V, 0805 package |10 | 0.2750 | $2.75 | KEMET | C0805F104K5RACTU | PRLTA 109 |n/a | C2, C4, C6, C7, C8, C9, C10, C11, C12, C16
+| **Part** | **Ref** | **Qty** | **Function** | **Unit cost** |
+|:---|:---|:---:|:---|:---|
+| PIC18F57Q43 Curiosity Nano | — | 1 | Hub microcontroller | — |
+| UG-2864HSWEG01, 128x64 SSD1306 OLED | U1 | 1 | On-board graphics. Component selection chose the ER-OLED0.96-1.3W, the same controller class. | $2.49 |
+| L7805CV | U4 | 1 | 9 V to 5 V | ~$1.08 |
+| 3.3 V LDO, SOT-23-5 | U2 | 1 | OLED supply. The schematic does not name the orderable part. The block diagram rates this rail at 500 mA. | — |
+| BSS138 | Q1, Q2 | 2 | I2C level shift between 5 V and 3.3 V | — |
+| Red LED | D4 | 1 | Debug indicator. Series resistor R7 is 330 Ω. | — |
+| 1N4148 | D1, D2, D3 | 3 | Small-signal diodes in the I2C level-shift network | — |
+| 1 A fuse | F2 | 1 | Protects the 9 V input | — |
+| Barrel jack | J1 | 1 | 9 V input | — |
+| 8-pin socket | J4, J5, J6 | 3 | UART connectors to the other three boards | — |
+| Pushbutton | SW1 | 1 | Local debug input on the hub. The user buttons are on board 2. | — |
+| Jumper | JP1 | 1 | Disconnects power from the OLED | — |
 
-Note: Setting it up as a table is nice because it is completely viewable without scaling issues. <ins>Downside</ins> is that you have to do the math.
-
-* You could also import your BOM via a screenshot of the spreadsheet created BOM
-
-## Bill of Materials Example (as Image)
-![](BOM-Screenshot.png){style width: "2000"}
-**Figure 2:** Example Bill of Materials as a screenshot.
-
-As you can see, the text can be difficult to read without opening the image.
+The microphone, temperature sensor, user buttons, and speaker are not on this board.

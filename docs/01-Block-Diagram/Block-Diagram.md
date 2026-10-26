@@ -23,3 +23,7 @@ These ports connect to the microphone board, the button and temperature board, a
 ![Team 105 hub block diagram](Individual Sultan Team 105 Block Diagram.drawio.png)
 
 **Figure 1:** Hub block diagram for RadioLink, showing the PIC18F57Q43 Curiosity Nano, the OLED and I2C interface, the 5 V and 3.3 V supplies, the red LED, and three UART connectors to the other subsystems.
+
+## Resources
+
+The exported block diagram is available as a [*ZIP archive*](Hub-Block-Diagram-Source.zip).
