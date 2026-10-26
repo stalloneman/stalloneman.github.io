@@ -4,13 +4,13 @@ title: Schematics
 
 ## Overview
 
-The Hub subsystem is centered around a PIC18F57Q43 Curiosity Nano development board. It interfaces with a 128x64 SSD1306 OLED over I2C and provides UART connections for communication with the other team subsystems.
+This schematic is the hub subsystem of RadioLink for Team 105. It is centered on a PIC18F57Q43 Curiosity Nano. The hub reads the other boards over UART, shows the combined information on a 128x64 SSD1306 OLED, and drives a local debug LED.
 
-The design includes 9-12 V input power regulation to 5 V, a local 3.3 V supply for the OLED, I2C level shifting, a debugging LED and pushbutton, test points, an OLED power-isolation jumper, and fused 5 V power distribution to the connected boards.
+Power comes from a 9 V barrel jack. A 1 A fuse feeds an LM7805, which regulates that input to 5 V for the microcontroller and the UART connectors. A separate 3.3 V supply powers the OLED. BSS138 level shifters translate the I2C signals between the 5 V microcontroller and the 3.3 V display. Test points, a pushbutton, and the red LED provide debugging access on the microcontroller side. Three 8-pin connectors carry the UART links to the other subsystems.
 
 ![Hub Subsystem Schematic](Hub-Subsystem-Schematic.png)
 
-**Figure 1:** Hub subsystem schematic showing the microcontroller and debugging circuitry, OLED display and I2C interface, power input and 5 V regulation, and UART inter-board connector.
+**Figure 1:** Hub subsystem schematic for RadioLink, showing the microcontroller and debug circuitry, the OLED and I2C interface, 9 V input and 5 V regulation, and the three UART connectors.
 
 ## Resources
 
