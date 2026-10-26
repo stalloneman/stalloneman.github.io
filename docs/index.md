@@ -20,11 +20,11 @@ This datasheet documents the hub subsystem of RadioLink, Team 105's embedded pro
 
 ### Project Summary
 
-RadioLink is organized as a hub-and-spoke system. Sensor boards send measurements to a central hub, the hub combines that information and shows it on an OLED, and the hub sends commands out to the actuators on the other boards. This site covers that hub: the PIC18F57Q43 Curiosity Nano, the display, the power supplies, and the UART links to the rest of the team.
+RadioLink is a hub-and-spoke system, and this board is the hub. It has an on-board OLED for graphics, a debug LED, and three UART ports. Board 1 carries the microphone, board 2 carries the pushbuttons and a temperature sensor, and board 3 carries the speaker. The microphone and button boards send their data to the hub. The hub shows a custom interface on the OLED, which is navigated with board 2's buttons, and it plays the microphone signal through the speaker.
 
 ### My Contribution
 
-My work on RadioLink has centered on concept ideation, user-needs benchmarking, and the hub itself. I defined how the boards share information, then designed the subsystem that receives sensor data from the other boards, combines it, presents it with a custom interface on the OLED, and sends the resulting signals to the actuators on those boards.
+My work on RadioLink has centered on concept ideation, user-needs benchmarking, and the hub itself. The hub receives the microphone and temperature data, presents it on a custom OLED interface that is navigated with the pushbuttons, and sends the microphone signal to the speaker.
 
 - [Block Diagram](01-Block-Diagram/Block-Diagram.md)
 - [Component Selection](02-Component-Selection/Component-Selection.md)

@@ -55,7 +55,7 @@ title: Component Selection
 
 ## Voltage Regulator
 
-**Requirements:** Convert a 9 V battery supply to 5 V for the microphone and speaker circuits.
+**Requirements:** Convert a 9 V supply to 5 V for the hub and its UART links to the microphone, button, and speaker boards.
 
 ### Option 1: L7805CV (STMicroelectronics)
 

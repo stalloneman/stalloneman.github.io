@@ -16,7 +16,7 @@ Three UART ports connect this hub to the other boards. Each link is 5 V and uses
 - Connector 2: RX on RF1, TX on RF0
 - Connector 3: RX on RA4, TX on RA3
 
-Sensor data arrives on these connectors. The hub combines it, shows it on the OLED, and sends actuator commands back out over the same links.
+These ports connect to the microphone board, the button and temperature board, and the speaker board. The microphone and button boards send data in. The hub shows temperature readings and the audio path on the OLED, and it sends the microphone signal out to the speaker.
 
 ## Block Diagram
 
