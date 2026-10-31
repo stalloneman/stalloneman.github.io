@@ -843,7 +843,8 @@
   <h1>Bill of Materials</h1>
 
 <h2 id="overview">Overview</h2>
-<p>These are the parts on the RadioLink hub schematic. Passives are omitted except where the value sets a current, as in the debug LED resistor. Prices are listed only where a vendor price was already chosen in component selection.</p>
+<p>These are the parts for the RadioLink hub. The design uses through-hole components wherever practical. The OLED module is an intentional exception.</p>
+<p>The current KiCad export has not been updated yet. It still shows a UG-2864HSWEG01 symbol, BSS138 MOSFETs, and a 5-pin U2. This table is the intended orderable list. Prices are included only where a vendor price was already recorded. No new distributor SKUs were added.</p>
 <h2 id="hub-bill-of-materials">Hub Bill of Materials</h2>
 <table>
 <thead>
@@ -851,6 +852,7 @@
 <th style="text-align: left;"><strong>Part</strong></th>
 <th style="text-align: left;"><strong>Ref</strong></th>
 <th style="text-align: center;"><strong>Qty</strong></th>
+<th style="text-align: left;"><strong>Package</strong></th>
 <th style="text-align: left;"><strong>Function</strong></th>
 <th style="text-align: left;"><strong>Unit cost</strong></th>
 </tr>
@@ -860,41 +862,47 @@
 <td style="text-align: left;">PIC18F57Q43 Curiosity Nano</td>
 <td style="text-align: left;">—</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: left;">Module</td>
 <td style="text-align: left;">Hub microcontroller</td>
 <td style="text-align: left;">—</td>
 </tr>
 <tr>
-<td style="text-align: left;">UG-2864HSWEG01, 128x64 SSD1306 OLED</td>
+<td style="text-align: left;">EastRising ER-OLED0.96-1.3W</td>
 <td style="text-align: left;">U1</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: left;">On-board graphics. Component selection chose the ER-OLED0.96-1.3W, the same controller class.</td>
+<td style="text-align: left;">FPC module, not through-hole</td>
+<td style="text-align: left;">128 x 64 OLED assembly. Controller on the module is SSD1306. This is not a UG-2864HSWEG01.</td>
 <td style="text-align: left;">$2.49</td>
 </tr>
 <tr>
-<td style="text-align: left;">L7805CV</td>
+<td style="text-align: left;">STMicroelectronics L7805CV</td>
 <td style="text-align: left;">U4</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: left;">TO-220</td>
 <td style="text-align: left;">9 V to 5 V</td>
 <td style="text-align: left;">~$1.08</td>
 </tr>
 <tr>
-<td style="text-align: left;">3.3 V LDO, SOT-23-5</td>
+<td style="text-align: left;">Microchip MCP1700-3302E/TO</td>
 <td style="text-align: left;">U2</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: left;">OLED supply. The schematic does not name the orderable part. The block diagram rates this rail at 500 mA.</td>
+<td style="text-align: left;">TO-92</td>
+<td style="text-align: left;">5 V to 3.3 V for the OLED. Pin 1 GND, pin 2 VIN, pin 3 VOUT.</td>
 <td style="text-align: left;">—</td>
 </tr>
 <tr>
-<td style="text-align: left;">BSS138</td>
+<td style="text-align: left;">onsemi 2N7000G</td>
 <td style="text-align: left;">Q1, Q2</td>
 <td style="text-align: center;">2</td>
-<td style="text-align: left;">I2C level shift between 5 V and 3.3 V</td>
+<td style="text-align: left;">TO-92</td>
+<td style="text-align: left;">I2C level shift, one device for SDA and one for SCL. Pin 1 source, pin 2 gate, pin 3 drain. Not a BSS138 footprint.</td>
 <td style="text-align: left;">—</td>
 </tr>
 <tr>
 <td style="text-align: left;">Red LED</td>
 <td style="text-align: left;">D4</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: left;">Package <strong>not verified</strong> on the schematic export</td>
 <td style="text-align: left;">Debug indicator. Series resistor R7 is 330 Ω.</td>
 <td style="text-align: left;">—</td>
 </tr>
@@ -902,6 +910,7 @@
 <td style="text-align: left;">1N4148</td>
 <td style="text-align: left;">D1, D2, D3</td>
 <td style="text-align: center;">3</td>
+<td style="text-align: left;">Package <strong>not verified</strong> on the schematic export</td>
 <td style="text-align: left;">Small-signal diodes in the I2C level-shift network</td>
 <td style="text-align: left;">—</td>
 </tr>
@@ -909,6 +918,7 @@
 <td style="text-align: left;">1 A fuse</td>
 <td style="text-align: left;">F2</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: left;">Package <strong>not verified</strong> on the schematic export</td>
 <td style="text-align: left;">Protects the 9 V input</td>
 <td style="text-align: left;">—</td>
 </tr>
@@ -916,6 +926,7 @@
 <td style="text-align: left;">Barrel jack</td>
 <td style="text-align: left;">J1</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: left;">Package <strong>not verified</strong> on the schematic export</td>
 <td style="text-align: left;">9 V input</td>
 <td style="text-align: left;">—</td>
 </tr>
@@ -923,6 +934,7 @@
 <td style="text-align: left;">8-pin socket</td>
 <td style="text-align: left;">J4, J5, J6</td>
 <td style="text-align: center;">3</td>
+<td style="text-align: left;">Through-hole connector, as drawn</td>
 <td style="text-align: left;">UART connectors to the other three boards</td>
 <td style="text-align: left;">—</td>
 </tr>
@@ -930,6 +942,7 @@
 <td style="text-align: left;">Pushbutton</td>
 <td style="text-align: left;">SW1</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: left;">Package <strong>not verified</strong> on the schematic export</td>
 <td style="text-align: left;">Local debug input on the hub. The user buttons are on board 2.</td>
 <td style="text-align: left;">—</td>
 </tr>
@@ -937,11 +950,13 @@
 <td style="text-align: left;">Jumper</td>
 <td style="text-align: left;">JP1</td>
 <td style="text-align: center;">1</td>
+<td style="text-align: left;">Package <strong>not verified</strong> on the schematic export</td>
 <td style="text-align: left;">Disconnects power from the OLED</td>
 <td style="text-align: left;">—</td>
 </tr>
 </tbody>
 </table>
+<p>C1 and C2 stay 10 µF. That value is above the MCP1700 minimum of 1.0 µF. <strong>Verify</strong> that their ESR is between 0 Ω and 2.0 Ω. C9 is 0.33 µF and C10 is 0.1 µF, which matches the L7805C datasheet test circuit. No capacitor value was changed.</p>
 <p>The microphone, temperature sensor, user buttons, and speaker are not on this board.</p>
 
 

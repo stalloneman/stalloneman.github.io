@@ -861,8 +861,8 @@
   <h1>Individual Block Diagram</h1>
 
 <h2 id="overview">Overview</h2>
-<p>This block diagram is the hub subsystem of RadioLink, Team 105's hub-and-spoke design. A Microchip PIC18F57Q43 Curiosity Nano sits at the center. A computer supplies 5 V over USB. An LM7805 provides a regulated 5 V rail rated for 1 A, and a separate 3.3 V regulator rated for 500 mA powers the display.</p>
-<p>The microcontroller drives a 128x64 SSD1306 OLED (ER-OLED0.96-1.3W) over I2C. SDA is RB2 and SCL is RB1. The OLED side of that bus is 3.3 V, and the microcontroller side is 5 V. A red LED is driven from RA2 using PWM.</p>
+<p>This block diagram is the hub subsystem of RadioLink, Team 105's hub-and-spoke design. A Microchip PIC18F57Q43 Curiosity Nano sits at the center. A computer supplies 5 V over USB. An ST L7805CV provides the regulated 5 V rail from the 9 V input. A Microchip MCP1700-3302E/TO makes 3.3 V from that 5 V rail for the display. The MCP1700 is rated for 250 mA. The drawing below still prints 500 mA on the 3.3 V rail, which was the placeholder before this part was selected.</p>
+<p>The microcontroller drives an EastRising ER-OLED0.96-1.3W over I2C. That module is a 128 x 64 panel with an SSD1306 controller. It is not a UG-2864HSWEG01. SDA is RB2 and SCL is RB1, after the 2N7000G level shifters. The OLED side of that bus is 3.3 V, and the microcontroller side is 5 V. A red LED is driven from RA2 using PWM. The module is the intentional exception to the through-hole preference.</p>
 <p>Three UART ports connect this hub to the other boards. Each link is 5 V and uses an RX/TX pair:</p>
 <ul>
 <li>Connector 1: RX on RC3, TX on RC2</li>
@@ -872,7 +872,7 @@
 <p>These ports connect to the microphone board, the button and temperature board, and the speaker board. The microphone and button boards send data in. The hub shows temperature readings and the audio path on the OLED, and it sends the microphone signal out to the speaker.</p>
 <h2 id="block-diagram">Block Diagram</h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../Individual%20Sultan%20Team%20105%20Block%20Diagram.drawio.png" data-desc-position="bottom"><img alt="Team 105 hub block diagram" src="../Individual%20Sultan%20Team%20105%20Block%20Diagram.drawio.png"></a></p>
-<p><strong>Figure 1:</strong> Hub block diagram for RadioLink, showing the PIC18F57Q43 Curiosity Nano, the OLED and I2C interface, the 5 V and 3.3 V supplies, the red LED, and three UART connectors to the other subsystems.</p>
+<p><strong>Figure 1:</strong> Hub block diagram for RadioLink. The drawing still labels the 3.3 V regulator as 500 mA. The selected 3.3 V part is the MCP1700-3302E/TO, rated 250 mA.</p>
 <h2 id="resources">Resources</h2>
 <p>The exported block diagram is available as a <a href="../Hub-Block-Diagram-Source.zip"><em>ZIP archive</em></a>.</p>
 

@@ -695,11 +695,53 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#display-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display current
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rails" class="md-nav__link">
     <span class="md-ellipsis">
       Rails
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Rails">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#33-v-rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 V rail
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-v-rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 V rail
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-v-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 V input
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -827,11 +869,53 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#display-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display current
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rails" class="md-nav__link">
     <span class="md-ellipsis">
       Rails
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Rails">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#33-v-rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 V rail
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-v-rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 V rail
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-v-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 V input
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -879,17 +963,71 @@
   <h1>Power Budget</h1>
 
 <h2 id="overview">Overview</h2>
-<p>This budget is for the RadioLink hub only. It covers the PIC18F57Q43 Curiosity Nano, the on-board OLED, the debug LED, and the regulators that feed them. The microphone, button, and speaker boards are not included. Their UART links are logic-level signals, and those boards carry their own supplies.</p>
-<p>Currents are datasheet or circuit limits, not lab measurements. The template's 25% margin is kept on each rail. The spreadsheet is linked below.</p>
+<p>This budget is for the RadioLink hub only. It covers the PIC18F57Q43 Curiosity Nano, the EastRising ER-OLED0.96-1.3W, the debug LED, the L7805CV, and the MCP1700-3302E/TO. The microphone, button, and speaker boards are not included. Their UART links are logic-level signals, and those boards carry their own supplies.</p>
+<p>The 9 V barrel jack feeds the L7805CV. The 5 V rail feeds the PIC, the debug LED, and the MCP1700. The 3.3 V rail feeds the display. A linear regulator does not remove the load current. The MCP1700 input current is still a load on the 5 V rail, and that 5 V current is still a load on the 9 V input.</p>
+<p>Currents below are datasheet limits or the allowances already used on this page. They are not lab measurements. The 25% margin is kept on each regulated rail. Quiescent current is included where the datasheet maximum is large enough to matter.</p>
+<h2 id="display-current">Display current</h2>
+<p>The orderable display is the ER-OLED0.96-1.3W. SSD1306 is the controller on that module. EastRising Note 8 lists a maximum IBAT of 32.0 mA with the internal charge pump, VDD = 2.8 V, generated VCC = 7.25 V, and 100% of the pixels on. IDD maximum is 300 µA. Those two maxima add to:</p>
+<p>32.0 mA + 0.3 mA = 32.3 mA</p>
+<p>The same datasheet lists VBAT as 3.5 V to 4.2 V when the internal DC/DC is enabled, and VDD as 1.65 V to 3.3 V. This board's display rail is 3.3 V, which is the top of the VDD range and below the stated VBAT minimum. <strong>Verify</strong> the current with VDD and VBAT both at 3.3 V. The older 33 mA figure is not used. 32.3 mA is the sum of the published maxima, not a measurement at 3.3 V.</p>
 <h2 id="rails">Rails</h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../RadioLink-Power-Budget-Rails.png" data-desc-position="bottom"><img alt="Hub power budget, loads and regulated rails" src="../RadioLink-Power-Budget-Rails.png"></a></p>
-<p><strong>Figure 1:</strong> Major loads, the 5 V rail, and the 3.3 V rail.</p>
+<p><strong>Figure 1:</strong> Loads on the 5 V rail and the 3.3 V rail, including the 25% margin.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../RadioLink-Power-Budget-Source.png" data-desc-position="bottom"><img alt="Hub power budget, 9 V source" src="../RadioLink-Power-Budget-Source.png"></a></p>
-<p><strong>Figure 2:</strong> Current drawn from the 9 V barrel jack, and the life of a 9 V battery if one is used in place of a wall supply.</p>
+<p><strong>Figure 2:</strong> Current drawn from the 9 V barrel jack, including L7805CV quiescent current.</p>
+<h3 id="33-v-rail">3.3 V rail</h3>
+<p>The only 3.3 V load in this budget is the display, at 32.3 mA.</p>
+<p>Margined current = 32.3 mA × 1.25 = 40.375 mA</p>
+<p>The MCP1700-3302E/TO is rated for 250 mA when the output is 2.5 V or higher. Remaining capacity is 250 mA − 40.375 mA = 209.625 mA.</p>
+<p>Load power and regulator loss at the 32.3 mA datasheet sum, not at the margin, are:</p>
+<p>P_load = 3.3 V × 0.0323 A = 0.1066 W</p>
+<p>P_MCP1700 = (5.0 V − 3.3 V) × 0.0323 A = 0.0549 W</p>
+<p>P_input ≈ 5.0 V × 0.0323 A + 5.0 V × 4 µA = 0.1615 W</p>
+<p>The 4 µA term is the MCP1700 maximum quiescent current. It does not change the milliamp total. TO-92 thermal resistance in the MCP1700 datasheet is 92 °C/W, so 0.0549 W is about a 5 °C rise.</p>
+<h3 id="5-v-rail">5 V rail</h3>
+<table>
+<thead>
+<tr>
+<th>Load</th>
+<th style="text-align: right;">Current</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIC18F57Q43 Curiosity Nano allowance</td>
+<td style="text-align: right;">15 mA</td>
+</tr>
+<tr>
+<td>Debug LED allowance, D4 with R7 = 330 Ω</td>
+<td style="text-align: right;">10 mA</td>
+</tr>
+<tr>
+<td>MCP1700 input, equal to the 32.3 mA display current</td>
+<td style="text-align: right;">32.3 mA</td>
+</tr>
+<tr>
+<td>Subtotal</td>
+<td style="text-align: right;">57.3 mA</td>
+</tr>
+<tr>
+<td>After 25% margin</td>
+<td style="text-align: right;">71.625 mA</td>
+</tr>
+</tbody>
+</table>
+<p>The 15 mA PIC number is an operating allowance for 5 V operation with UART, I2C, and PWM. It is not a copied datasheet maximum and it is not a lab measurement. The 10 mA LED number is the existing allowance from (5 V − 1.8 V) / 330 Ω, rounded up. The 1.8 V LED drop was not taken from a datasheet for D4. <strong>Verify</strong> that LED forward voltage.</p>
+<p>The L7805CV can supply up to 1.5 A. Remaining capacity against that rating is 1.5 A − 71.625 mA = 1.428 A. The 1 A fuse is on the 9 V input, not on the 5 V output.</p>
+<p>At the margined 71.625 mA output current, using the L7805C maximum quiescent current of 8 mA at 25 °C:</p>
+<p>P_L7805 = (9 V − 5 V) × 0.071625 A + 9 V × 0.008 A = 0.359 W</p>
+<p>TO-220 junction-to-ambient thermal resistance in the ST L78 datasheet is 50 °C/W, so the rise is about 18 °C. Output power is 5 V × 0.071625 A = 0.358 W. Input power is 9 V × (0.071625 A + 0.008 A) = 0.717 W. Efficiency is 0.358 / 0.717 = 50%. The L7805CV is appropriate because the heat is small, not because a linear drop from 9 V to 5 V is efficient.</p>
+<h3 id="9-v-input">9 V input</h3>
+<p>Current from the barrel jack is the margined 5 V output current plus the 8 mA quiescent maximum:</p>
+<p>71.625 mA + 8 mA = 79.625 mA</p>
+<p>The fuse is 1 A, so the unused current is 1000 mA − 79.625 mA = 920.375 mA. That spare current is not a reason to power the speaker from this board. The speaker amplifier belongs on board 3.</p>
+<p>A 500 mAh 9 V alkaline cell is not on the schematic. If one replaced the barrel jack, life at 79.625 mA would be 500 mAh / 79.625 mA = 6.28 hours. USB on the Curiosity Nano can power the microcontroller during programming, and that path is separate from this 9 V budget.</p>
 <h2 id="conclusions">Conclusions</h2>
-<p>After the 25% margin, the hub asks the 5 V rail for 72.5 mA. The 1 A fuse and the LM7805 can both supply that, with 927.5 mA still unused. The OLED is the largest load, at 33 mA on the 3.3 V rail. The 3.3 V regulator is rated for 500 mA on the block diagram, so the display does not stress it.</p>
-<p>The LM7805 drops 9 V to 5 V. At this load its dissipation is about 0.36 W, which a TO-220 package can handle without a heatsink. The 9 V input, limited by the 1 A fuse, still has 919.5 mA of spare current. That spare current is not a reason to power the speaker from this board. The speaker amplifier belongs on board 3.</p>
-<p>A 500 mAh 9 V alkaline battery would run this hub for 6.21 hours. The schematic uses a barrel jack, so that figure only applies if a battery is substituted for the jack. USB on the Curiosity Nano can power the microcontroller during programming, and that path is separate from this 9 V budget.</p>
+<p>The margined hub load is 71.625 mA on the 5 V rail and 40.375 mA on the 3.3 V rail. Both are far below the L7805CV 1.5 A rating and the MCP1700 250 mA rating. L7805CV dissipation at the margined load is 0.359 W. MCP1700 dissipation at the 32.3 mA display sum is 0.0549 W. The 9 V input, limited by the 1 A fuse, still has 920 mA of spare current.</p>
+<p>The display number still needs a bench check, because the 32.0 mA IBAT maximum is specified for the charge pump at VDD = 2.8 V, and this rail is 3.3 V.</p>
 <h2 id="resources">Resources</h2>
 <p>The spreadsheet is available as a <a href="../RadioLink-Hub-Power-Budget.zip"><em>ZIP archive</em></a> and as an <a href="../RadioLink-Hub-Power-Budget.xlsx"><em>Excel file</em></a>.</p>
 
