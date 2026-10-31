@@ -6,9 +6,9 @@ tags:
 
 ## Overview
 
-This block diagram is the hub subsystem of RadioLink, Team 105's hub-and-spoke design. A Microchip PIC18F57Q43 Curiosity Nano sits at the center. A computer supplies 5 V over USB. An LM7805 provides a regulated 5 V rail rated for 1 A, and a separate 3.3 V regulator rated for 500 mA powers the display.
+This block diagram is the hub subsystem of RadioLink, Team 105's hub-and-spoke design. A Microchip PIC18F57Q43 Curiosity Nano sits at the center. A computer supplies 5 V over USB. An ST L7805CV provides the regulated 5 V rail from the 9 V input. A Microchip MCP1700-3302E/TO makes 3.3 V from that 5 V rail for the display. The MCP1700 is rated for 250 mA. The drawing below still prints 500 mA on the 3.3 V rail, which was the placeholder before this part was selected.
 
-The microcontroller drives a 128x64 SSD1306 OLED (ER-OLED0.96-1.3W) over I2C. SDA is RB2 and SCL is RB1. The OLED side of that bus is 3.3 V, and the microcontroller side is 5 V. A red LED is driven from RA2 using PWM.
+The microcontroller drives an EastRising ER-OLED0.96-1.3W over I2C. That module is a 128 x 64 panel with an SSD1306 controller. It is not a UG-2864HSWEG01. SDA is RB2 and SCL is RB1, after the 2N7000G level shifters. The OLED side of that bus is 3.3 V, and the microcontroller side is 5 V. A red LED is driven from RA2 using PWM. The module is the intentional exception to the through-hole preference.
 
 Three UART ports connect this hub to the other boards. Each link is 5 V and uses an RX/TX pair:
 
@@ -22,7 +22,7 @@ These ports connect to the microphone board, the button and temperature board, a
 
 ![Team 105 hub block diagram](Individual Sultan Team 105 Block Diagram.drawio.png)
 
-**Figure 1:** Hub block diagram for RadioLink, showing the PIC18F57Q43 Curiosity Nano, the OLED and I2C interface, the 5 V and 3.3 V supplies, the red LED, and three UART connectors to the other subsystems.
+**Figure 1:** Hub block diagram for RadioLink. The drawing still labels the 3.3 V regulator as 500 mA. The selected 3.3 V part is the MCP1700-3302E/TO, rated 250 mA.
 
 ## Resources
 
