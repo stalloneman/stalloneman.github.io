@@ -4,9 +4,9 @@ title: Power Budget
 
 ## Overview
 
-This budget is for the RadioLink hub only. It covers the PIC18F57Q43 Curiosity Nano, the EastRising ER-OLED0.96-1.3W, the debug LED, the L7805CV, and the MCP1700-3302E/TO. The microphone, button, and speaker boards are not included. Their UART links are logic-level signals, and those boards carry their own supplies.
+This budget is for the RadioLink hub only. It covers the PIC18F57Q43 Curiosity Nano, the EastRising ER-OLED0.96-1.3W, the debug LED, the LM7805, and the MCP1700-3302E/TO. The microphone, button, and speaker boards are not included. Their UART links are logic-level signals, and those boards carry their own supplies.
 
-The 9 V barrel jack feeds the L7805CV. The 5 V rail feeds the PIC, the debug LED, and the MCP1700. The 3.3 V rail feeds the display. A linear regulator does not remove the load current. The MCP1700 input current is still a load on the 5 V rail, and that 5 V current is still a load on the 9 V input.
+The 9 V barrel jack feeds the LM7805. The 5 V rail feeds the PIC, the debug LED, and the MCP1700. The 3.3 V rail feeds the display. A linear regulator does not remove the load current. The MCP1700 input current is still a load on the 5 V rail, and that 5 V current is still a load on the 9 V input.
 
 Currents below are datasheet limits or the allowances already used on this page. They are not lab measurements. The 25% margin is kept on each regulated rail. Quiescent current is included where the datasheet maximum is large enough to matter.
 
@@ -26,7 +26,7 @@ The same datasheet lists VBAT as 3.5 V to 4.2 V when the internal DC/DC is enabl
 
 ![Hub power budget, 9 V source](RadioLink-Power-Budget-Source.png)
 
-**Figure 2:** Current drawn from the 9 V barrel jack, including L7805CV quiescent current.
+**Figure 2:** Current drawn from the 9 V barrel jack, including the 8 mA quiescent allowance.
 
 ### 3.3 V rail
 
@@ -58,13 +58,15 @@ The 4 µA term is the MCP1700 maximum quiescent current. It does not change the 
 
 The 15 mA PIC number is an operating allowance for 5 V operation with UART, I2C, and PWM. It is not a copied datasheet maximum and it is not a lab measurement. The 10 mA LED number is the existing allowance from (5 V − 1.8 V) / 330 Ω, rounded up. The 1.8 V LED drop was not taken from a datasheet for D4. **Verify** that LED forward voltage.
 
-The L7805CV can supply up to 1.5 A. Remaining capacity against that rating is 1.5 A − 71.625 mA = 1.428 A. The 1 A fuse is on the 9 V input, not on the 5 V output.
+The schematic part is the LM7805. The 1.5 A rating, the 8 mA quiescent maximum at 25 °C, and the 50 °C/W TO-220 thermal resistance below are from the ST L7805C datasheet. They are the estimate used here, not a reading from a separate LM7805 datasheet.
 
-At the margined 71.625 mA output current, using the L7805C maximum quiescent current of 8 mA at 25 °C:
+That 1.5 A rating leaves 1.5 A − 71.625 mA = 1.428 A. The 1 A fuse is on the 9 V input, not on the 5 V output.
 
-P_L7805 = (9 V − 5 V) × 0.071625 A + 9 V × 0.008 A = 0.359 W
+At the margined 71.625 mA output current, using that 8 mA quiescent maximum:
 
-TO-220 junction-to-ambient thermal resistance in the ST L78 datasheet is 50 °C/W, so the rise is about 18 °C. Output power is 5 V × 0.071625 A = 0.358 W. Input power is 9 V × (0.071625 A + 0.008 A) = 0.717 W. Efficiency is 0.358 / 0.717 = 50%. The L7805CV is appropriate because the heat is small, not because a linear drop from 9 V to 5 V is efficient.
+P_LM7805 = (9 V − 5 V) × 0.071625 A + 9 V × 0.008 A = 0.359 W
+
+At 50 °C/W the rise is about 18 °C. Output power is 5 V × 0.071625 A = 0.358 W. Input power is 9 V × (0.071625 A + 0.008 A) = 0.717 W. Efficiency is 0.358 / 0.717 = 50%. The LM7805 is appropriate in this estimate because the heat is small, not because a linear drop from 9 V to 5 V is efficient.
 
 ### 9 V input
 
@@ -78,7 +80,7 @@ A 500 mAh 9 V alkaline cell is not on the schematic. If one replaced the barrel 
 
 ## Conclusions
 
-The margined hub load is 71.625 mA on the 5 V rail and 40.375 mA on the 3.3 V rail. Both are far below the L7805CV 1.5 A rating and the MCP1700 250 mA rating. L7805CV dissipation at the margined load is 0.359 W. MCP1700 dissipation at the 32.3 mA display sum is 0.0549 W. The 9 V input, limited by the 1 A fuse, still has 920 mA of spare current.
+The margined hub load is 71.625 mA on the 5 V rail and 40.375 mA on the 3.3 V rail. Against the ST L7805C 1.5 A figure used above, and the MCP1700 250 mA rating, both loads are small. The LM7805 estimate at the margined load is 0.359 W. MCP1700 dissipation at the 32.3 mA display sum is 0.0549 W. The 9 V input, limited by the 1 A fuse, still has 920 mA of spare current.
 
 The display number still needs a bench check, because the 32.0 mA IBAT maximum is specified for the charge pump at VDD = 2.8 V, and this rail is 3.3 V.
 
