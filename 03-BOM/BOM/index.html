@@ -843,8 +843,8 @@
   <h1>Bill of Materials</h1>
 
 <h2 id="overview">Overview</h2>
-<p>These are the parts for the RadioLink hub. The design uses through-hole components wherever practical. The OLED module is an intentional exception.</p>
-<p>The current KiCad export has not been updated yet. It still shows a UG-2864HSWEG01 symbol, BSS138 MOSFETs, and a 5-pin U2. This table is the intended orderable list. Prices are included only where a vendor price was already recorded. No new distributor SKUs were added.</p>
+<p>These are the parts for the RadioLink hub. The design uses through-hole components wherever practical. The OLED module and its ZIF connector are the intentional exceptions.</p>
+<p>The schematic file in the KiCad zip uses the part numbers in this table. The schematic image and PDF are still the older plot. Prices are included only where a vendor price was already recorded. No new distributor SKUs were added. J7 has no price and no footprint.</p>
 <h2 id="hub-bill-of-materials">Hub Bill of Materials</h2>
 <table>
 <thead>
@@ -870,17 +870,25 @@
 <td style="text-align: left;">EastRising ER-OLED0.96-1.3W</td>
 <td style="text-align: left;">U1</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: left;">FPC module, not through-hole</td>
-<td style="text-align: left;">128 x 64 OLED assembly. Controller on the module is SSD1306. This is not a UG-2864HSWEG01.</td>
+<td style="text-align: left;">FPC module, not soldered to the board</td>
+<td style="text-align: left;">128 x 64 OLED assembly. Controller on the module is SSD1306. Plugs into J7. This is not a UG-2864HSWEG01.</td>
 <td style="text-align: left;">$2.49</td>
 </tr>
 <tr>
-<td style="text-align: left;">STMicroelectronics L7805CV</td>
+<td style="text-align: left;">EastRising ER-CON30HT-1</td>
+<td style="text-align: left;">J7</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">SMD, 30-pin, 0.5 mm, top contact. Footprint <strong>not assigned</strong></td>
+<td style="text-align: left;">ZIF socket for U1. Top contact matches the module. This is not ER-CON30HB-1.</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr>
+<td style="text-align: left;">LM7805</td>
 <td style="text-align: left;">U4</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: left;">TO-220</td>
-<td style="text-align: left;">9 V to 5 V</td>
-<td style="text-align: left;">~$1.08</td>
+<td style="text-align: left;">Package <strong>not verified</strong> on the schematic</td>
+<td style="text-align: left;">9 V to 5 V. Symbol value is LM7805.</td>
+<td style="text-align: left;">—</td>
 </tr>
 <tr>
 <td style="text-align: left;">Microchip MCP1700-3302E/TO</td>
@@ -891,7 +899,7 @@
 <td style="text-align: left;">—</td>
 </tr>
 <tr>
-<td style="text-align: left;">onsemi 2N7000G</td>
+<td style="text-align: left;">onsemi 2N7000</td>
 <td style="text-align: left;">Q1, Q2</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: left;">TO-92</td>
@@ -956,7 +964,7 @@
 </tr>
 </tbody>
 </table>
-<p>C1 and C2 stay 10 µF. That value is above the MCP1700 minimum of 1.0 µF. <strong>Verify</strong> that their ESR is between 0 Ω and 2.0 Ω. C9 is 0.33 µF and C10 is 0.1 µF, which matches the L7805C datasheet test circuit. No capacitor value was changed.</p>
+<p>C1 and C2 stay 10 µF. That value is above the MCP1700 minimum of 1.0 µF. <strong>Verify</strong> that their ESR is between 0 Ω and 2.0 Ω. C9 is 0.33 µF and C10 is 0.1 µF. No capacitor value was changed.</p>
 <p>The microphone, temperature sensor, user buttons, and speaker are not on this board.</p>
 
 
