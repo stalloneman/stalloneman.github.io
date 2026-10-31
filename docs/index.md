@@ -16,7 +16,7 @@ for<br>
 
 ## Introduction
 
-This datasheet documents the hub subsystem of RadioLink, Team 105's embedded project. It is written so the design can be reviewed on its own, without the team report open beside it.
+This datasheet documents the hub subsystem of RadioLink, Team 105's embedded project.
 
 ### Project Summary
 

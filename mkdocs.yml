@@ -1,6 +1,6 @@
-site_name: EGR 304 Data Sheet Template
-site_url: https://embedded-systems-design.github.io/EGR304DataSheetTemplate
-repo_url: https://github.com/embedded-systems-design/EGR304DataSheetTemplate
+site_name: RadioLink Hub Datasheet
+site_url: https://stalloneman.github.io/
+repo_url: https://github.com/stalloneman/stalloneman.github.io
 edit_uri: edit/main/docs/
 theme:
   name: material
@@ -59,7 +59,7 @@ extra_javascript:
 not_in_nav: |
   static
   
-copyright: "Copyright &copy; 2025 team-name-here"
+copyright: "Copyright &copy; 2026 Sultan Haidar Ali"
 
 extra:
   generator: false
