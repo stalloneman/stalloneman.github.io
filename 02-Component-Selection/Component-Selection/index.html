@@ -1138,7 +1138,7 @@
 </table>
 <p><strong>Choice:</strong> ER-OLED0.96-1.3W</p>
 <p><strong>Rationale:</strong> The hub UI only has to show temperature and audio status. A 128 x 64 SSD1306 module does that, costs $2.49, and does not have the 12- and 16-week lead times of the larger panels. Option 2 also needs 12.5 V, which this board does not have. The FPC module is the intentional exception to the through-hole preference.</p>
-<p>The schematic file now labels U1 as ER-OLED0.96-1.3W and wires it pin for pin to J7, an EastRising ER-CON30HT-1 top-contact ZIF. The published PNG and PDF still show the old symbol. See the schematic page.</p>
+<p>The published schematic labels U1 as ER-OLED0.96-1.3W. It does not show a placed ER-CON30HT-1. See the schematic page.</p>
 <h2 id="9-v-to-5-v-regulator">9 V to 5 V Regulator</h2>
 <p><strong>Requirements:</strong> Make a regulated 5 V rail from the 9 V barrel jack for the Curiosity Nano, the debug LED, and the current that the 3.3 V regulator draws. The package should be through-hole. The part must stay in regulation at 9 V and at the budgeted load, and the heat has to be acceptable without treating the regulator as an efficient converter.</p>
 <p>The generic name "7805" is the 5 V family. The part selected for U4 is the LM7805. That symbol does not assign a footprint.</p>
