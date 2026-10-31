@@ -9,7 +9,7 @@ tags:
 
 These are the parts for the RadioLink hub. The design uses through-hole components wherever practical. The OLED module and its ZIF connector are the intentional exceptions.
 
-The schematic file in the KiCad zip uses the part numbers in this table. The schematic image and PDF are still the older plot. Prices are included only where a vendor price was already recorded. No new distributor SKUs were added. J7 has no price and no footprint.
+The schematic file in the KiCad zip uses the part numbers in this table. The schematic image and PDF are the 2026-10-30 plot. That plot does not draw J7. Prices are included only where a vendor price was already recorded. No new distributor SKUs were added. J7 has no price and no footprint.
 
 ## Hub Bill of Materials
 

@@ -64,7 +64,7 @@ EastRising lists VDD as 1.65 V to 3.3 V, typical 2.8 V. Logic-high is 0.8 x VDD.
 
 **Rationale:** The hub UI only has to show temperature and audio status. A 128 x 64 SSD1306 module does that, costs $2.49, and does not have the 12- and 16-week lead times of the larger panels. Option 2 also needs 12.5 V, which this board does not have. The FPC module is the intentional exception to the through-hole preference.
 
-The schematic file now labels U1 as ER-OLED0.96-1.3W and wires it pin for pin to J7, an EastRising ER-CON30HT-1 top-contact ZIF. The published PNG and PDF still show the old symbol. See the schematic page.
+The published schematic labels U1 as ER-OLED0.96-1.3W. It does not show a placed ER-CON30HT-1. See the schematic page.
 
 ## 9 V to 5 V Regulator
 
