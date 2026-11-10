@@ -2,57 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://stalloneman.github.io/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://stalloneman.github.io/01-Block-Diagram/Block-Diagram/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://stalloneman.github.io/02-Component-Selection/Component-Selection/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://stalloneman.github.io/03-BOM/BOM/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://stalloneman.github.io/04-Schematic/schematic/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://stalloneman.github.io/05-Power-Budget/Power-Budget/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://stalloneman.github.io/06-PCB-Design/PCB-Design/</loc>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://stalloneman.github.io/Appendix/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://stalloneman.github.io/Appendix/another-subfile/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://stalloneman.github.io/Appendix/basic-markdown-examples/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://stalloneman.github.io/Appendix/charts/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://stalloneman.github.io/Appendix/esp-32-table/</loc>
-         <lastmod>2026-10-31</lastmod>
+         <lastmod>2026-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
