@@ -31,3 +31,4 @@ My work on RadioLink has centered on concept ideation, user-needs benchmarking, 
 - [Bill of Materials](03-BOM/BOM.md)
 - [Schematic](04-Schematic/schematic.md)
 - [Power Budget](05-Power-Budget/Power-Budget.md)
+- [PCB Design](06-PCB-Design/PCB-Design.md)

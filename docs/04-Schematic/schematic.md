@@ -22,6 +22,6 @@ The ER-OLED0.96-1.3W is the interface the user sees. It plugs into an ER-CON30HT
 
 ## Resources
 
-A high-resolution PDF of this plot is available [*here*](Hub-Subsystem-Schematic.pdf).
+A high-resolution PDF of this schematic is available [*here*](Hub-Subsystem-Schematic.pdf).
 
-The KiCad project is available as a [*ZIP archive*](Hub-Subsystem-KiCad-Project.zip).
+The KiCad project and manufacturing files are on the [PCB Design](../06-PCB-Design/PCB-Design.md) page.
